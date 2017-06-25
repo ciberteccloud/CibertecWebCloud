@@ -19,6 +19,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "UnitTest", "UnitTest", "{2E
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cibertec.WebApi.Tests", "Cibertec.WebApi.Tests\Cibertec.WebApi.Tests.csproj", "{2E3DF5C2-8A38-4A03-86D7-8D463C917E47}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cibertec.Mocked", "Cibertec.Mocked\Cibertec.Mocked.csproj", "{4E85CF8E-E81F-439A-B5AD-FB98169E2F6B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -45,6 +47,10 @@ Global
 		{2E3DF5C2-8A38-4A03-86D7-8D463C917E47}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2E3DF5C2-8A38-4A03-86D7-8D463C917E47}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2E3DF5C2-8A38-4A03-86D7-8D463C917E47}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4E85CF8E-E81F-439A-B5AD-FB98169E2F6B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4E85CF8E-E81F-439A-B5AD-FB98169E2F6B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4E85CF8E-E81F-439A-B5AD-FB98169E2F6B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4E85CF8E-E81F-439A-B5AD-FB98169E2F6B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -55,5 +61,6 @@ Global
 		{F1F6B300-BCD6-45CB-8BF6-7B13D8697D8B} = {50E7F87B-0E7F-4F38-A886-7ED981FEB4C2}
 		{9A02E420-F135-4D9A-A0BC-474B3D1ED420} = {614B1463-38D0-4A77-A529-ECD94613C9FF}
 		{2E3DF5C2-8A38-4A03-86D7-8D463C917E47} = {2EAA5228-34CA-44EA-A3A6-74F19642A3C4}
+		{4E85CF8E-E81F-439A-B5AD-FB98169E2F6B} = {2EAA5228-34CA-44EA-A3A6-74F19642A3C4}
 	EndGlobalSection
 EndGlobal

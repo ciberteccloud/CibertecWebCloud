@@ -81,6 +81,10 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Cibertec.Mocked\Cibertec.Mocked.csproj">
+      <Project>{4e85cf8e-e81f-439a-b5ad-fb98169e2f6b}</Project>
+      <Name>Cibertec.Mocked</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Cibertec.Models\Cibertec.Models.csproj">
       <Project>{76d2c39b-04a7-4297-8978-1d8ecbd8ca67}</Project>
       <Name>Cibertec.Models</Name>
