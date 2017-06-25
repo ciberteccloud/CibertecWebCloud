@@ -9,7 +9,7 @@ using Cibertec.Repository.Northwind;
 
 namespace Cibertec.UnitOfWork
 {
-    public class TiboxUnitOfWork : IUnitOfWork, IDisposable
+    public class TiboxUnitOfWork : IUnitOfWork
     {
         public TiboxUnitOfWork()
         {
@@ -26,10 +26,5 @@ namespace Cibertec.UnitOfWork
         public IRepository<Product> Products { get; private set; }
         public IRepository<Supplier> Suppliers { get; private set; }
         public IUserRepository Users { get; private set; }
-
-        public void Dispose()
-        {
-            this.Dispose();
-        }
     }
 }

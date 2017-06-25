@@ -8,9 +8,9 @@ using System.Web.Http;
 
 namespace Cibertec.WebApi
 {
-    public static class WebApiConfig
+    public partial class Startup
     {
-        public static void Register(HttpConfiguration config)
+        public void Register(HttpConfiguration config)
         {
             config.MessageHandlers.Insert(0, new ServerCompressionHandler(new GZipCompressor(), new DeflateCompressor()));
             config.Formatters.JsonFormatter.SerializerSettings.ContractResolver = new CamelCasePropertyNamesContractResolver();
