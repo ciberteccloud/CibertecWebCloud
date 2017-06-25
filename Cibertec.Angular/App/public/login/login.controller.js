@@ -10,17 +10,22 @@
         vm.user = {};
         vm.title = 'Login';
         vm.login = login;
+        vm.showError = false;
 
         init();
 
         function init() {
-            if (configService.setLogin()) $state.go("home");
+            if (configService.getLogin()) $state.go("product");
             authenticationService.logout();
         }
 
         function login() {
-            authenticationService.login(vm.user);
-            $state.go("home");
+            authenticationService.login(vm.user).then(function (result) {
+                vm.showError = false;
+                $state.go("product");
+            }, function (error) {
+                vm.showError = true;
+            });               
         }
     }
 })();

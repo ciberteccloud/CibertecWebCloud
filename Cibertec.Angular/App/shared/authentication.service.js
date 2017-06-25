@@ -3,15 +3,17 @@
         .module('app')
         .factory('authenticationService', authenticationService);
 
-    authenticationService.$inject = ['$http', '$state', 'localStorageService', 'configService'];
+    authenticationService.$inject = ['$http', '$state', 'localStorageService', 'configService', '$q'];
 
-    function authenticationService($http, $state, localStorageService, configService) {        
+    function authenticationService($http, $state, localStorageService, configService,$q) {        
         var service = {};
         service.login = login;
         service.logout = logout;
         return service;
 
-        function login(user) {            
+        function login(user) {
+
+            var defer = $q.defer();
             var url = configService.getApiUrl() + '/Token';
             var data = "grant_type=password&username=" + user.userName + "&password=" + user.password;
             $http.post(url,
@@ -29,8 +31,12 @@
                         userName: user.userName
                     });
                 configService.setLogin(true);
-                $state.go("product");
+                defer.resolve(true);
+            },
+            function (error) {
+                defer.reject(false);
             });
+            return defer.promise;
         }
 
         function logout() {
