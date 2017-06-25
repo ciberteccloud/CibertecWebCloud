@@ -21,6 +21,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cibertec.WebApi.Tests", "Ci
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cibertec.Mocked", "Cibertec.Mocked\Cibertec.Mocked.csproj", "{4E85CF8E-E81F-439A-B5AD-FB98169E2F6B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cibertec.Angular", "Cibertec.Angular\Cibertec.Angular.csproj", "{34955B08-CB4A-4E3F-BBF2-285ED7E5C3BF}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -51,6 +53,10 @@ Global
 		{4E85CF8E-E81F-439A-B5AD-FB98169E2F6B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4E85CF8E-E81F-439A-B5AD-FB98169E2F6B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4E85CF8E-E81F-439A-B5AD-FB98169E2F6B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{34955B08-CB4A-4E3F-BBF2-285ED7E5C3BF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{34955B08-CB4A-4E3F-BBF2-285ED7E5C3BF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{34955B08-CB4A-4E3F-BBF2-285ED7E5C3BF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{34955B08-CB4A-4E3F-BBF2-285ED7E5C3BF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -62,5 +68,6 @@ Global
 		{9A02E420-F135-4D9A-A0BC-474B3D1ED420} = {614B1463-38D0-4A77-A529-ECD94613C9FF}
 		{2E3DF5C2-8A38-4A03-86D7-8D463C917E47} = {2EAA5228-34CA-44EA-A3A6-74F19642A3C4}
 		{4E85CF8E-E81F-439A-B5AD-FB98169E2F6B} = {2EAA5228-34CA-44EA-A3A6-74F19642A3C4}
+		{34955B08-CB4A-4E3F-BBF2-285ED7E5C3BF} = {614B1463-38D0-4A77-A529-ECD94613C9FF}
 	EndGlobalSection
 EndGlobal

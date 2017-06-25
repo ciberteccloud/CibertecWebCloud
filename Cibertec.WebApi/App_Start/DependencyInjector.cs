@@ -19,7 +19,7 @@ namespace Cibertec.WebApi
                     await next();
                 }
             });
-            container.Options.DefaultScopedLifestyle = new AsyncScopedLifestyle();
+            container.Options.DefaultScopedLifestyle = new  AsyncScopedLifestyle();
             RegisterAssemblies(container);
             container.RegisterWebApiControllers(config);
             config.DependencyResolver = new SimpleInjectorWebApiDependencyResolver(container);
@@ -27,7 +27,7 @@ namespace Cibertec.WebApi
 
         private void RegisterAssemblies(Container container)
         {
-            container.Register<IUnitOfWork, CibertecUnitOfWork>(Lifestyle.Scoped);
+            container.Register<IUnitOfWork, CibertecUnitOfWork>(Lifestyle.Transient);            
         }
     }
 }
