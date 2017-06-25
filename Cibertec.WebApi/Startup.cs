@@ -11,38 +11,22 @@ using Cibertec.UnitOfWork;
 
 namespace Cibertec.WebApi
 {
-    public class Startup
+    public partial class Startup
     {
         private readonly IUnitOfWork _unit;
 
         public Startup()
         {
-            _unit = new TiboxUnitOfWork();
+            _unit = new CibertecUnitOfWork();
         }
 
         public void Configuration(IAppBuilder app)
         {
             var config = new HttpConfiguration();
-            WebApiConfig.Register(config);
-
-            app.UseBasicAuthentication(
-                new BasicAuthenticationOptions("TiboxSecure",
-                async (username, password)=> await Authenticate(username, password))
-                );
-
+            ConfigureInjector(app, config);
+            Register(config);            
             app.UseWebApi(config);
         }
-
-        private async Task<IEnumerable<Claim>> Authenticate(string username, string password)
-        {
-            var user = _unit.Users.ValidateUser(username, password);
-
-            if (user == null) return null;
-
-            return new List<Claim>
-            {
-                new Claim("name", user.Email)
-            };
-        }
+        
     }
 }

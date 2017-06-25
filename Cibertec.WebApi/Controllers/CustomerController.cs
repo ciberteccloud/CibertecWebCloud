@@ -1,16 +1,16 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net;
-using System.Net.Http;
-using System.Web.Http;
+﻿using System.Web.Http;
 using Cibertec.Models;
+using Cibertec.UnitOfWork;
 
 namespace Cibertec.WebApi.Controllers
 {
     [RoutePrefix("customer")]    
     public class CustomerController : BaseController
     {
+        public CustomerController(IUnitOfWork unit) : base(unit)
+        {
+        }
+
         [Route("{id}")]
         public IHttpActionResult Get(int id)
         {

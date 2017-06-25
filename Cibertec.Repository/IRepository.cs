@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using Cibertec.Models;
 
 namespace Cibertec.Repository
 {

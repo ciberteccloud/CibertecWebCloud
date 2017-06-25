@@ -8,7 +8,7 @@ using System.Web.Http;
 
 namespace Cibertec.WebApi
 {
-    public static class WebApiConfig
+    public partial class Startup
     {
         public static void Register(HttpConfiguration config)
         {
