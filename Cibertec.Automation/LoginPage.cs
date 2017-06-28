@@ -1,4 +1,5 @@
 ﻿using OpenQA.Selenium;
+using OpenQA.Selenium.Support.PageObjects;
 using OpenQA.Selenium.Support.UI;
 using System;
 
@@ -6,46 +7,70 @@ namespace Tibox.Automation
 {
     public class LoginPage
     {
-        public static void Go()
+        const string url = "http://localhost/Cibertec.Angular";       
+
+        #region Page Objects
+        [FindsBy(How = How.CssSelector, Using = "a[href='#!/login']")]
+        private IWebElement loginLink = null;
+
+        [FindsBy(How = How.CssSelector, Using = "div.alert.alert-danger")]
+        private IWebElement errorMessage = null;
+
+        [FindsBy(How = How.CssSelector, Using = "a[ng-click='vm.logout()']")]
+        private IWebElement logoutLink = null;
+        #endregion 
+
+        public LoginPage()
+        {            
+            PageFactory.InitElements(Driver.Instance, this);
+        }
+        public void Go()
         {
-            Driver.Instance.Navigate().GoToUrl("http://localhost/Cibertec.Angular");
-            var wait = new WebDriverWait(Driver.Instance, TimeSpan.FromSeconds(10));
-            wait.Until(driver => driver.FindElement(By.CssSelector("a[href='#!/login']")));
-            Driver.Instance.FindElement(By.CssSelector("a[href='#!/login']")).Click();
+            Driver.Instance.Navigate().GoToUrl(url);
+            loginLink.Click();
         }
 
-        public static LoginCommand LoginAs(string userName)
+        public LoginCommand LoginAs(string userName)
         {
             return new LoginCommand(userName);
         }
 
-        public static string GetUrl()
+        public string GetUrl()
         {
             return Driver.Instance.Url;
         }
 
-        public static bool IsAlertErrorPresent()
+        public bool IsAlertErrorPresent()
         {
-            var element = Driver.Instance.FindElement(By.CssSelector("div.alert.alert-danger"));
-            return element != null;            
+            return errorMessage==null;            
         }
 
-        public static void Logout()
-        {
-            var wait = new WebDriverWait(Driver.Instance, TimeSpan.FromSeconds(10));
-            wait.Until(driver => driver.FindElement(By.CssSelector("a[ng-click='vm.logout()']")));
-            Driver.Instance.FindElement(By.CssSelector("a[ng-click='vm.logout()']")).Click();
+        public void Logout()
+        {   
+            logoutLink.Click();
         }        
     }
 
     public class LoginCommand
     {
+        #region Page Objects
+        [FindsBy(How = How.Id, Using = "userName")]
+        private IWebElement userNameInput = null;
+
+        [FindsBy(How = How.Id, Using = "password")]
+        private IWebElement passwordInput = null;
+
+        [FindsBy(How = How.CssSelector, Using = "button.btn.btn-primary")]
+        private IWebElement submitButton = null;
+        #endregion 
+
         private string userName;
         private string password;
 
         public LoginCommand(string userName)
         {
             this.userName = userName;
+            PageFactory.InitElements(Driver.Instance, this);
         }
 
         public LoginCommand WithPassword(string password)
@@ -56,16 +81,16 @@ namespace Tibox.Automation
 
         public void Login()
         {
-            Driver.Instance.FindElement(By.Id("userName")).Clear();
-            Driver.Instance.FindElement(By.Id("userName")).SendKeys(userName);
-            Driver.Instance.FindElement(By.Id("password")).Clear();
-            Driver.Instance.FindElement(By.Id("password")).SendKeys(password);
+            userNameInput.Clear();
+            userNameInput.SendKeys(userName);
+            passwordInput.Clear();
+            passwordInput.SendKeys(password);
             Submit();
         }
 
         public void Submit()
-        {
-            Driver.Instance.FindElement(By.CssSelector("button.btn.btn-primary")).Click();
+        {            
+            submitButton.Click();
         }
     }
 }

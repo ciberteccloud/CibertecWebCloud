@@ -5,9 +5,10 @@ using System;
 
 namespace Tibox.Automation
 {
-    public enum Drivers{
-        Chrome=0,
-        InternetExplorer=1
+    public enum Drivers
+    {
+        Chrome = 0,
+        InternetExplorer = 1
     }
 
     public class Driver
@@ -16,14 +17,14 @@ namespace Tibox.Automation
 
         public static void GetInstance(Drivers option)
         {
-            switch(option)
+            switch (option)
             {
                 case Drivers.InternetExplorer:
                     Instance = IEInstance();
                     break;
                 default:
                     Instance = ChromeInstance();
-                    break;                
+                    break;
             }
             Instance.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(5);
         }
@@ -32,9 +33,11 @@ namespace Tibox.Automation
             var options = new ChromeOptions();
             options.AddArguments("chrome.switches", "--disable-extensions --disable-extensions-file-access-check --disable-extensions-http-throttling --disable-infobars --enable-automation --start-maximized");
             options.AddUserProfilePreference("credentials_enable_service", false);
-            options.AddUserProfilePreference("profile.password_manager_enabled", false);         
+            options.AddUserProfilePreference("profile.password_manager_enabled", false);
 
-            return new ChromeDriver(options);            
+            var driver = new ChromeDriver(options);
+            driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(10);
+            return driver;
         }
 
         private static IWebDriver IEInstance()

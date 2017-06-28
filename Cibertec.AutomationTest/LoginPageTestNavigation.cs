@@ -7,30 +7,32 @@ namespace Tibox.AutomationTest
 {
     public class LoginPageTestNavigation
     {
+        private readonly LoginPage _loginPage;
         public LoginPageTestNavigation()
         {
             Driver.GetInstance(Drivers.Chrome);
+            _loginPage = new LoginPage();
         }
 
         [Theory(DisplayName ="Login")]
         [InlineData("juvega@gmail.com", "12345678")]
         public void LoginTest(string email, string password)
         {
-            LoginPage.Go();
-            LoginPage.LoginAs(email).WithPassword(password).Login();
+            _loginPage.Go();
+            _loginPage.LoginAs(email).WithPassword(password).Login();
             Thread.Sleep(1000);
-            LoginPage.GetUrl().Should().Be("http://localhost/Cibertec.Angular/#!/product");
-            LoginPage.Logout();
+            _loginPage.GetUrl().Should().Be("http://localhost/Cibertec.Angular/#!/product");
+            _loginPage.Logout();
             Driver.CloseInstance();
         }
 
         [Fact(DisplayName = "Login Incorrect")]
         public void WrongLoginTest()
         {
-            LoginPage.Go();
-            LoginPage.LoginAs("juvega@test.net").WithPassword("incorrect").Login();
+            _loginPage.Go();
+            _loginPage.LoginAs("juvega@test.net").WithPassword("incorrect").Login();
             Thread.Sleep(1000);
-            LoginPage.IsAlertErrorPresent().Should().Be(true);
+            _loginPage.IsAlertErrorPresent().Should().Be(true);
             Driver.CloseInstance();
         }        
     }
