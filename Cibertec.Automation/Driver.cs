@@ -3,7 +3,7 @@ using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.IE;
 using System;
 
-namespace Tibox.Automation
+namespace Cibertec.Automation
 {
     public enum Drivers
     {

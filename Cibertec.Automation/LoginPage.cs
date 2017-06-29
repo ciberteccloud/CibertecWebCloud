@@ -1,9 +1,7 @@
 ﻿using OpenQA.Selenium;
 using OpenQA.Selenium.Support.PageObjects;
-using OpenQA.Selenium.Support.UI;
-using System;
 
-namespace Tibox.Automation
+namespace Cibertec.Automation
 {
     public class LoginPage
     {

@@ -7,8 +7,8 @@
     <ProjectGuid>{F06B3088-85A2-40E6-BE19-AC8F8E94E640}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Cibertec.AutomationTest</RootNamespace>
-    <AssemblyName>Cibertec.AutomationTest</AssemblyName>
+    <RootNamespace>Cibertec.AutomationTests</RootNamespace>
+    <AssemblyName>Cibertec.AutomationTests</AssemblyName>
     <TargetFrameworkVersion>v4.6.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{3AC096D0-A1C2-E12C-1390-A8335801FDAB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
@@ -82,7 +82,7 @@
   <ItemGroup>
     <ProjectReference Include="..\Cibertec.Automation\Cibertec.Automation.csproj">
       <Project>{6090a5ca-5ab3-4ab7-8875-21f85bae4097}</Project>
-      <Name>Tibox.Automation</Name>
+      <Name>Cibertec.Automation</Name>
     </ProjectReference>
   </ItemGroup>
   <Choose>

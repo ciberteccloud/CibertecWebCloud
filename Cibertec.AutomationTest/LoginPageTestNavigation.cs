@@ -1,9 +1,9 @@
 ﻿using FluentAssertions;
 using System.Threading;
-using Tibox.Automation;
+using Cibertec.Automation;
 using Xunit;
 
-namespace Tibox.AutomationTest
+namespace Cibertec.AutomationTest
 {
     public class LoginPageTestNavigation
     {

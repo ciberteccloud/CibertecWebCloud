@@ -27,7 +27,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "E2E", "E2E", "{661C0A99-DA5
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cibertec.Automation", "Cibertec.Automation\Cibertec.Automation.csproj", "{6090A5CA-5AB3-4AB7-8875-21F85BAE4097}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cibertec.AutomationTest", "Cibertec.AutomationTest\Cibertec.AutomationTest.csproj", "{F06B3088-85A2-40E6-BE19-AC8F8E94E640}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cibertec.AutomationTests", "Cibertec.AutomationTest\Cibertec.AutomationTests.csproj", "{F06B3088-85A2-40E6-BE19-AC8F8E94E640}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
