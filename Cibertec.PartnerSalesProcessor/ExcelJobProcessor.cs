@@ -19,26 +19,26 @@ namespace Cibertec.PartnerSalesProcessor
 
         public void Execute(IJobExecutionContext context)
         {
-            Task.Run(() =>
+            Console.WriteLine("Process Running");
+            if (!Directory.Exists(filePath)) return;
+
+            var files = Directory.GetFiles(filePath, "*.xlsx");
+            if (!files.Any())
             {
-                Console.WriteLine("Process Running");
-                if (!Directory.Exists(filePath)) return;
+                Console.WriteLine("Nothing to process");
+                return;
+            }
 
-                var files = Directory.GetFiles(filePath, "*.xlsx");
-                if (!files.Any())
-                {
-                    Console.WriteLine("Nothing to process");
-                    return;
-                }
-
-                foreach (var fileName in files)
+            foreach (var fileName in files)
+            {
+                Task.Run(() =>
                 {
                     var processExcel = new ProcessSale(new CibertecUnitOfWork());
                     processExcel.ReadExcel(fileName);
                     File.Move(fileName, $"{historyPath}\\{Path.GetFileName(fileName)}");
                     Console.WriteLine($"File {Path.GetFileName(fileName)} completed");
-                }
-            });
+                });                
+            }            
         }
     }
 }
