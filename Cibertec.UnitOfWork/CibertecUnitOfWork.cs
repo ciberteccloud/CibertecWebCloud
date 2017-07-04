@@ -1,4 +1,5 @@
-﻿using Cibertec.Models;
+﻿using System;
+using Cibertec.Models;
 using Cibertec.Repository;
 using Cibertec.Repository.Northwind;
 
@@ -13,13 +14,16 @@ namespace Cibertec.UnitOfWork
             OrderItems = new BaseRepository<OrderItem>();
             Products = new BaseRepository<Product>();
             Suppliers = new BaseRepository<Supplier>();
-            Users = new UserRepository();         
+            Users = new UserRepository();
+            Sales = new SaleRepository();            
         }
         public ICustomerRepository Customers { get; private set; }
         public IOrderRepository Orders { get; private set; }
         public IRepository<OrderItem> OrderItems { get; private set; }
         public IRepository<Product> Products { get; private set; }
         public IRepository<Supplier> Suppliers { get; private set; }
-        public IUserRepository Users { get; private set; }        
+        public IUserRepository Users { get; private set; }
+
+        public ISaleRepository Sales { get; private set; }
     }
 }

@@ -15,8 +15,6 @@ namespace Cibertec.Models
         public string OrderNumber { get; set; }
         [Required(ErrorMessage = "This field is required.")]
         public int CustomerId { get; set; }
-        public decimal? TotalAmount { get; set; }
-        [Computed]
-        public IEnumerable<OrderItem> OrderItems { get; set; }
+        public decimal? TotalAmount { get; set; }        
     }
 }

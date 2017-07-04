@@ -20,8 +20,7 @@ namespace Cibertec.Repository.Northwind
                     parameters, 
                     commandType: System.Data.CommandType.StoredProcedure))
                 {
-                    var customer = multiple.Read<Customer>().Single();
-                    customer.Orders = multiple.Read<Order>();
+                    var customer = multiple.Read<Customer>().Single();                    
                     return customer;
                 }
             }

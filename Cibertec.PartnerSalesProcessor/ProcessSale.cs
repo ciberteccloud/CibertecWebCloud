@@ -13,28 +13,24 @@ namespace Cibertec.PartnerSalesProcessor
         {
             _unit = unit;
         }
-        public void ReadExcel()
-        {
-            string fileName = "PartnerSale.xlsx";
+        public void ReadExcel(string fileName)
+        {            
             var workbook = new XLWorkbook(fileName);
             workbook.CalculateMode = XLCalculateMode.Auto;
 
-            Customer customer = new Customer();
-            List<Order> orders = new List<Order>();
-            List<OrderItem> orderItems = new List<OrderItem>();
+            var sale = new Sale();
 
             if (workbook.Worksheet(1).Name == "Customer")
             {
                 var row = workbook.Worksheet(1).Row(2);
-                customer = new Customer
+                sale.Customer = new Customer
                 {
                     FirstName = row.Cell("B").GetString(),
                     LastName = row.Cell("C").GetString(),
                     City = row.Cell("D").GetString(),
                     Country = row.Cell("E").GetString(),
                     Phone = row.Cell("F").GetString()
-                };
-                //_unit.Customers.Insert(customer);
+                };                
             }
 
             if (workbook.Worksheet(2).Name == "Order")
@@ -43,9 +39,9 @@ namespace Cibertec.PartnerSalesProcessor
                 while (!workbook.Worksheet(2).Row(index).IsEmpty())
                 {
                     var row = workbook.Worksheet(2).Row(index);
-                    orders.Add(new Order
+                    sale.Orders.Add(new Order
                     {
-                        CustomerId = customer.Id,
+                        CustomerId = sale.Customer.Id,
                         OrderDate = row.Cell("B").GetDateTime(),
                         OrderNumber = row.Cell("C").GetString(),
                         TotalAmount = Convert.ToDecimal(row.Cell("E").ValueCached)
@@ -60,7 +56,7 @@ namespace Cibertec.PartnerSalesProcessor
                 while (!workbook.Worksheet(3).Row(index).IsEmpty())
                 {
                     var row = workbook.Worksheet(3).Row(index);
-                    orderItems.Add(new OrderItem
+                    sale.OrderItems.Add(new OrderItem
                     {
                         OrderId = row.Cell("B").GetValue<int>(),
                         ProductId= row.Cell("C").GetValue<int>(),
@@ -70,6 +66,8 @@ namespace Cibertec.PartnerSalesProcessor
                     index++;
                 }
             }
+
+            _unit.Sales.ProcessSale(sale);
             
         }
     }

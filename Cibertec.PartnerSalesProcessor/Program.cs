@@ -1,18 +1,37 @@
-﻿using Cibertec.UnitOfWork;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Quartz;
+using Topshelf;
+using Topshelf.Quartz;
 
 namespace Cibertec.PartnerSalesProcessor
 {
-    class Program
+    public class Program
     {
-        static void Main(string[] args)
+        static void Main()
         {
-            var service = new ProcessSale(new CibertecUnitOfWork());
-            service.ReadExcel();
+            HostFactory.Run(x =>
+            {
+                x.Service<ServiceRunner>(sc =>
+                {
+                    sc.WhenStarted((service, control) => service.Start());
+                    sc.WhenStopped((service, control) => service.Start());
+                    sc.ConstructUsing(() => new ServiceRunner());
+
+                    sc.ScheduleQuartzJob
+                    (
+                        q => q.WithJob(() => JobBuilder.Create<ExcelJobProcessor>().Build())
+                        .AddTrigger(() => TriggerBuilder.Create().WithSimpleSchedule(schedule => schedule.WithIntervalInSeconds(60).RepeatForever()).Build())
+                    );
+                });
+
+                x.RunAsLocalSystem()
+                    .DependsOnEventLog()
+                    .StartAutomatically()
+                    .EnableServiceRecovery(rc => rc.RestartService(1));
+
+                x.SetServiceName("Sale Processor");
+                x.SetDisplayName("Sale Processor");
+                x.SetDescription("Excel file partner sale processor.");
+            });
         }
     }
 }

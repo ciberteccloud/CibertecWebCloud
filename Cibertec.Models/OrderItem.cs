@@ -1,5 +1,8 @@
+using Dapper.Contrib.Extensions;
+
 namespace Cibertec.Models
 {
+    [Table("[OrderItem]")]
     public class OrderItem
     {
         public int Id { get; set; }

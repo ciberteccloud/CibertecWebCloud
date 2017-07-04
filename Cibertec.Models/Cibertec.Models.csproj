@@ -55,6 +55,7 @@
     <Compile Include="OrderItem.cs" />
     <Compile Include="Product.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Sale.cs" />
     <Compile Include="Supplier.cs" />
     <Compile Include="User.cs" />
   </ItemGroup>
