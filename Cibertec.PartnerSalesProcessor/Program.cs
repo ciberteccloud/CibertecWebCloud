@@ -13,7 +13,7 @@ namespace Cibertec.PartnerSalesProcessor
                 x.Service<ServiceRunner>(sc =>
                 {
                     sc.WhenStarted((service, control) => service.Start());
-                    sc.WhenStopped((service, control) => service.Start());
+                    sc.WhenStopped((service, control) => service.Stop());
                     sc.ConstructUsing(() => new ServiceRunner());
 
                     sc.ScheduleQuartzJob
