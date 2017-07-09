@@ -4,12 +4,14 @@
     <Instances count="1" />
     <ConfigurationSettings>
       <Setting name="Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString" value="UseDevelopmentStorage=true" />
+      <Setting name="APPINSIGHTS_INSTRUMENTATIONKEY" value="6bf88597-d694-4d53-afc2-8736a71afbc1" />
     </ConfigurationSettings>
   </Role>
   <Role name="Cibertec.PartnerSalesProcessor">
     <Instances count="1" />
     <ConfigurationSettings>
       <Setting name="Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString" value="UseDevelopmentStorage=true" />
+      <Setting name="APPINSIGHTS_INSTRUMENTATIONKEY" value="6bf88597-d694-4d53-afc2-8736a71afbc1" />
     </ConfigurationSettings>
   </Role>
 </ServiceConfiguration>

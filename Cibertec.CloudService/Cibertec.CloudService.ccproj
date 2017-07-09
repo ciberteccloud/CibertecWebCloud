@@ -57,10 +57,14 @@
   <ItemGroup>
     <Folder Include="Cibertec.PartnerSalesProcessorContent\" />
     <Folder Include="Cibertec.WebApiContent\" />
+    <Folder Include="Profiles" />
   </ItemGroup>
   <ItemGroup>
     <DiagnosticsConfiguration Include="Cibertec.PartnerSalesProcessorContent\diagnostics.wadcfgx" />
     <DiagnosticsConfiguration Include="Cibertec.WebApiContent\diagnostics.wadcfgx" />
+  </ItemGroup>
+  <ItemGroup>
+    <PublishProfile Include="Profiles\ciberteccloudjvProduction.azurePubxml" />
   </ItemGroup>
   <!-- Import the target files for this project template -->
   <PropertyGroup>
