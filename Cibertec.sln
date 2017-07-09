@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.26430.6
+VisualStudioVersion = 15.0.26430.15
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Data", "Data", "{50E7F87B-0E7F-4F38-A886-7ED981FEB4C2}"
 EndProject
@@ -32,6 +32,10 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Services", "Services", "{60949DB6-B70A-4B92-A0BA-1E32C5E3CCAC}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cibertec.PartnerSalesProcessor", "Cibertec.PartnerSalesProcessor\Cibertec.PartnerSalesProcessor.csproj", "{826C2129-DF39-49D8-ADFF-6B75DCC9E10B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Cloud", "Cloud", "{D787515B-1A7E-4ECE-BD46-D9E81BE15153}"
+EndProject
+Project("{CC5FD16D-436D-48AD-A40C-5A424C6E3E79}") = "Cibertec.CloudService", "Cibertec.CloudService\Cibertec.CloudService.ccproj", "{F2F551BE-F96F-49CF-8927-55628B3F18EC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -79,6 +83,10 @@ Global
 		{826C2129-DF39-49D8-ADFF-6B75DCC9E10B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{826C2129-DF39-49D8-ADFF-6B75DCC9E10B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{826C2129-DF39-49D8-ADFF-6B75DCC9E10B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F2F551BE-F96F-49CF-8927-55628B3F18EC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F2F551BE-F96F-49CF-8927-55628B3F18EC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F2F551BE-F96F-49CF-8927-55628B3F18EC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F2F551BE-F96F-49CF-8927-55628B3F18EC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -94,5 +102,6 @@ Global
 		{6090A5CA-5AB3-4AB7-8875-21F85BAE4097} = {661C0A99-DA54-4982-BA15-B52F6618FDB7}
 		{F06B3088-85A2-40E6-BE19-AC8F8E94E640} = {661C0A99-DA54-4982-BA15-B52F6618FDB7}
 		{826C2129-DF39-49D8-ADFF-6B75DCC9E10B} = {60949DB6-B70A-4B92-A0BA-1E32C5E3CCAC}
+		{F2F551BE-F96F-49CF-8927-55628B3F18EC} = {D787515B-1A7E-4ECE-BD46-D9E81BE15153}
 	EndGlobalSection
 EndGlobal
